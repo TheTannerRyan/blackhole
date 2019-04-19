@@ -15,6 +15,7 @@ docker run -d --restart=unless-stopped \
   -e BLACKHOLE_IP=127.0.0.1 \
   -e BLACKHOLE_TTL=3600 \
   -e BLACKHOLE_PORT=9999 \
+  -e LOGGING=true \
   --name blackhole \
   blackhole
 ```
@@ -22,6 +23,7 @@ You are able to configure three environment variables:
 - `BLACKHOLE_IP`: the IP that all DNS lookups will return.
 - `BLACKHOLE_TTL`: the TTL that all DNS lookups will return.
 - `BLACKHOLE_PORT`: the UDP port to listen for DNS requests on.
+- `LOGGING`: boolean to enable stdout logging of domains.
 
 ## Response
 All __A record__ lookups will return the `BLACKHOLE_IP` with the

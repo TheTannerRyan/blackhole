@@ -5,6 +5,7 @@
 package main
 
 import (
+	"log"
 	"net"
 	"os"
 	"strconv"
@@ -16,6 +17,7 @@ var (
 	blackholeIP     = os.Getenv("BLACKHOLE_IP")                // Answer to all lookups
 	blackholeTTL, _ = strconv.Atoi(os.Getenv("BLACKHOLE_TTL")) // TTL of response
 	blackholePort   = os.Getenv("BLACKHOLE_PORT")              // Port of DNS server
+	logging         = os.Getenv("LOGGING")                     // Enable logging to stdout
 )
 
 type handler struct {
@@ -36,6 +38,9 @@ func (h *handler) ServeDNS(w dns.ResponseWriter, r *dns.Msg) {
 		})
 	}
 	w.WriteMsg(&msg)
+	if logging == "true" {
+		log.Println(msg.Question[0].Name)
+	}
 }
 
 func main() {
