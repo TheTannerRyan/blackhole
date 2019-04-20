@@ -20,7 +20,7 @@ docker run -d --restart=unless-stopped \
   blackhole
 ```
 You are able to configure three environment variables:
-- `BLACKHOLE_ANSWER`: the answer that all DNS lookups will return.
+- `BLACKHOLE_ANSWER`: the answer that all DNS lookups will return (IP or "NXDOMAIN").
 - `BLACKHOLE_TTL`: the TTL that all DNS lookups will return.
 - `BLACKHOLE_PORT`: the UDP port to listen for DNS requests on.
 - `LOGGING`: boolean to enable stdout logging of domains.
