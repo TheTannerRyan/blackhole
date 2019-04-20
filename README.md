@@ -3,7 +3,7 @@
 license](https://img.shields.io/github/license/TheTannerRyan/blackhole.svg?style=flat-square)](https://github.com/TheTannerRyan/blackhole/blob/master/LICENSE)
 
 blackhole is a lightweight DNS service. It will redirect all DNS lookups to a
-provided IP. 
+provided IP or return NXDOMAIN.
 
 ## Docker Usage
 There's nothing funky about the process. Clone, build, and run to your heart's
@@ -12,7 +12,7 @@ desire.
 docker build -t blackhole .
 docker run -d --restart=unless-stopped \
   -p 9999:9999/udp \
-  -e BLACKHOLE_IP=127.0.0.1 \
+  -e BLACKHOLE_ANSWER=127.0.0.1 \
   -e BLACKHOLE_TTL=3600 \
   -e BLACKHOLE_PORT=9999 \
   -e LOGGING=true \
@@ -20,13 +20,13 @@ docker run -d --restart=unless-stopped \
   blackhole
 ```
 You are able to configure three environment variables:
-- `BLACKHOLE_IP`: the IP that all DNS lookups will return.
+- `BLACKHOLE_ANSWER`: the answer that all DNS lookups will return.
 - `BLACKHOLE_TTL`: the TTL that all DNS lookups will return.
 - `BLACKHOLE_PORT`: the UDP port to listen for DNS requests on.
 - `LOGGING`: boolean to enable stdout logging of domains.
 
 ## Response
-All __A record__ lookups will return the `BLACKHOLE_IP` with the
+All __A record__ lookups will return the `BLACKHOLE_ANSWER` with the
 `BLACKHOLE_TTL`:
 ```
 $ dig google.com @172.16.0.18 -p 9999
