@@ -1,4 +1,9 @@
 # blackhole - lightweight lying DNS server
+[![Build
+Status](https://img.shields.io/travis/TheTannerRyan/blackhole.svg?style=flat-square)](https://travis-ci.org/TheTannerRyan/blackhole)
+[![Go Report
+Card](https://goreportcard.com/badge/github.com/thetannerryan/blackhole?style=flat-square)](https://goreportcard.com/report/github.com/thetannerryan/blackhole)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-5673AF.svg?style=flat-square)](https://godoc.org/github.com/TheTannerRyan/blackhole)
 [![GitHub
 license](https://img.shields.io/github/license/TheTannerRyan/blackhole.svg?style=flat-square)](https://github.com/TheTannerRyan/blackhole/blob/master/LICENSE)
 
